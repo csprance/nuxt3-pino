@@ -1,3 +1,4 @@
+import { defineNuxtPlugin } from "nuxt/app";
 import pino from "pino";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -6,7 +7,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     targets: [
       {
         target: "pino-pretty",
-        level: "trace"
+        level: "trace", options: {}
       },
       {
         target: "pino/file",
@@ -16,12 +17,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     ]
   });
   const logger = pino({
-      level: "trace",
+      level: server.level,
       timestamp: pino.stdTimeFunctions.isoTime
     },
     transport
   );
-  logger.level = "trace";
+  logger.level =  server.level;
 
   return {
     provide: {

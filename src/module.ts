@@ -1,10 +1,18 @@
 import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
 import defu from "defu";
+import pino from "pino";
 
-// Module options TypeScript interface definition
+export interface PinoLoggerServerOptions {
+  level: pino.LevelWithSilent;
+}
+
+export interface PinoLoggerClientOptions {
+  level: pino.LevelWithSilent;
+}
+
 export interface ModuleOptions {
-  client: any;
-  server: any;
+  client: PinoLoggerClientOptions;
+  server: PinoLoggerServerOptions;
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -14,8 +22,12 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
-    client: {},
-    server: {}
+    client: {
+      level: 'trace'
+    },
+    server: {
+      level: 'trace'
+    }
   },
   setup (options, nuxt) {
     const resolver = createResolver(import.meta.url)

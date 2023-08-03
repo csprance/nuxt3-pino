@@ -23,9 +23,9 @@ Easily add pino logger to your Nuxt3 app.
 ## Features
 
 <!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+- Single logging API for client/server
+- Logging Levels `info|debug|error|warning`
+- HTTP Logging
 
 ## Quick Setup
 
@@ -33,26 +33,26 @@ Easily add pino logger to your Nuxt3 app.
 
 ```bash
 # Using pnpm
-pnpm add -D my-module
+pnpm add -D nuxt3-pino
 
 # Using yarn
-yarn add --dev my-module
+yarn add --dev nuxt3-pino
 
 # Using npm
-npm install --save-dev my-module
+npm install --save-dev nuxt3-pino
 ```
 
-2. Add `my-module` to the `modules` section of `nuxt.config.ts`
+2. Add `nuxt3-pino` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
   modules: [
-    'my-module'
+    'nuxt3-pino'
   ]
 })
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+That's it! You can now use Nuxt3 Pino in your Nuxt app ✨
 
 ## Development
 
